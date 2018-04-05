@@ -4,7 +4,7 @@ module.exports.run = async (client, message, arg) => {
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
   let infoText = arg.slice(1).join(" ");
-  message.guild.members.get(bot.user.id).setNickname(alertText);
+  message.guild.members.get(client.user.id).setNickname(alertText);
   const embed = new Discord.RichEmbed()
   .setTitle("Info")
   .setColor("#0284ff")
