@@ -35,7 +35,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   var cont = message.content.slice(config.prefix.length).split(" ");
   var arg = cont.slice(1);
-  if (!message.content.startsWith(config.prefix) || message.author.bot || message.author.id == config.ownerID || message.author.id == config.smikkelbeerID) return;
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   var cmd = client.commands.get(cont[0]);
   if (cmd) cmd.run(client, message, arg)
 
