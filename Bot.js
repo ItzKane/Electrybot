@@ -35,7 +35,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   var cont = message.content.slice(config.prefix.length).split(" ");
   var arg = cont.slice(1);
-  if (!message.content.startsWith(config.prefix) || message.author.bot) return;
+  if (!message.content.startsWith(config.prefix) || message.author.bot || message.author.id == config.ownerID || message.author.id == config.smikkelbeerID) return;
   var cmd = client.commands.get(cont[0]);
   if (cmd) cmd.run(client, message, arg)
 
@@ -56,9 +56,8 @@ if (message.content.startsWith(config.prefix + "help")) {
     //.addField("The prefix for this server is:" + config.prefix)
     .addField(config.prefix + "weather <location>", "Get the weather of a location!")
     .addField(config.prefix + "report <@user>", "Report an user to staff!")
-    .addField(config.prefix + "imadeveloper", "Get the `@[Developer]` rank!")
     .setTimestamp()
-    .setFooter("© 2018 Discord Bot Development", "https://cdn.pixabay.com/photo/2017/10/24/00/39/bot-icon-2883144_960_720.png")
+    .setFooter("© 2018 Electry Development | All Rights Reserved")
 
   message.channel.send({embed});
 
@@ -74,7 +73,7 @@ const embed = new Discord.RichEmbed()
   .addField(config.prefix + "kick <@user> <reason>", "Kick an user")
   .addField(config.prefix + "warn <@user> <reason>", "Warn an user")
   .setTimestamp()
-  .setFooter("© 2018 Discord Bot Development", "https://cdn.pixabay.com/photo/2017/10/24/00/39/bot-icon-2883144_960_720.png")
+  .setFooter("© 2018 Electry Development | All Rights Reserved")
 
 message.channel.send({embed});
 
