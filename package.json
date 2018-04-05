@@ -1,0 +1,21 @@
+{
+  "name": "Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "Express": "^3.0.1",
+    "discord-rich-presence": "0.0.6",
+    "discord-rpc": "^3.0.0-beta.10",
+    "discord-webface": "^1.0.48",
+    "discord.js": "^11.3.2",
+    "quick.hook": "^1.2.2",
+    "weather-js": "^2.0.0"
+  }
+}
