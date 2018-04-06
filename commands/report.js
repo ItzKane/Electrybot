@@ -1,5 +1,5 @@
-module.exports.run = async (client, message, arg, config) => {
-
+module.exports.run = async (client, message, arg) => {
+  const sconfig = require("./config.json");
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
   let reportedUser = message.mentions.members.first();
@@ -15,10 +15,10 @@ module.exports.run = async (client, message, arg, config) => {
     .setColor("#ff0000")
     .addField("Message:", reportMessage, true)
     .addField("User:", "<@" + reportedUser.id + ">", true)
-    .setFooter("Report created by: " + message.author.tag, "https://cdn.pixabay.com/photo/2017/10/24/00/39/bot-icon-2883144_960_720.png")
+    .setFooter("Report created by: " + message.author.tag, "https://gamemaster2030.github.io/Electryhost.png")
     .setTimestamp()
   message.channel.send("Report created!")
-  message.guild.channels.get(config.reportChannelID).send({embed});
+  message.guild.channels.get(sconfig.reportChannelID).send({embed});
 }
 
 module.exports.config = {

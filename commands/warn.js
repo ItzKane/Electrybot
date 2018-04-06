@@ -1,8 +1,8 @@
-module.exports.run = async (client, message, arg, config) => {
-
+module.exports.run = async (client, message, arg) => {
+  const sconfig = require("./config.json");
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
-      const modRole = message.guild.roles.find("name", "");
+      const modRole = message.guild.roles.find("name", "🔍 | Medewerker");
   if (!modRole)
     return console.log("Staff role don't exist!");
 
@@ -22,7 +22,7 @@ module.exports.run = async (client, message, arg, config) => {
       .setDescription(warnMember + " has been warned!")
       .addField("Warned by: ", message.author.tag)
       .addField("Reason:", reason)
-    webhooksend(message.guild.channels.get(config.modLog), logEmbed, {
+    webhooksend(message.guild.channels.get(sconfig.modLog), logEmbed, {
       name: "Logs",
       icon: "https://gamemaster2030.github.io/Logs.png"
     })

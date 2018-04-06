@@ -1,8 +1,8 @@
-module.exports.run = async (client, message, arg, config) => {
-
+module.exports.run = async (client, message, arg) => {
+  const sconfig = require("./config.json");
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
-  const modRole = message.guild.roles.find("name", "[Server staff]");
+  const modRole = message.guild.roles.find("name", "🔍 | Medewerker");
 if (!modRole)
 return console.log("Staff role don't exist!");
 
@@ -25,14 +25,14 @@ const embed = new Discord.RichEmbed()
 webhooksend(message.channel), embed, {
   name: 'Moderation',
   icon: 'https://i.imgur.com/X9eAmHm.png'
-})
+}
 
 const logEmbed = new Discord.RichEmbed()
   .setColor("0x77C2AE")
   .setTitle("Banned user")
   .setDescription(banMember + " has been kicked from the Discord server!")
   .setFooter("Banned by: " + message.author.tag)
-webhooksend(message.guild.channels.get(config.modLog), logEmbed, {
+webhooksend(message.guild.channels.get(sconfig.modLog), logEmbed, {
   name: "Logs",
   icon: "https://gamemaster2030.github.io/Logs.png"
 })
