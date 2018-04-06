@@ -1,5 +1,4 @@
-module.exports.run = async (client, message, arg) => {
-
+module.exports.run = async (client, message, arg, config) => {
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
   let alertTekst = arg.slice(1).join(" ");
