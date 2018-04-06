@@ -11,8 +11,7 @@ module.exports.run = async (client, message, arg, config) => {
   .setDescription("Nickname changed to: " + infoText)
   .setFooter("© 2018 Electry Development | All Rights Reserved")
   .setTimestamp()
-message.channel.send("Message created!")
-message.guild.channels.get(config.infoChannelID).send({embed});
+message.channel.send({embed});
 }
 
 module.exports.config = {
