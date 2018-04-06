@@ -40,7 +40,7 @@ webhooksend(message.guild.channels.get(config.modLog), logEmbed, {
 banMember.ban();
 
 
-    warnMember.send("<:alert:430032794043809792> You've have been banned in **Discord Bot Development** for: " + reason);
+    warnMember.send("<:alert:430032794043809792> You've have been banned in **Electry Development** for: " + reason);
 }
 
 module.exports.config = {
