@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, arg) => {
+module.exports.run = async (client, message, arg, config) => {
 
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
@@ -32,7 +32,7 @@ const logEmbed = new Discord.RichEmbed()
   .setTitle("Banned user")
   .setDescription(banMember + " has been kicked from the Discord server!")
   .setFooter("Banned by: " + message.author.tag)
-webhooksend(message.guild.channels.get('428516200553906188'), logEmbed, {
+webhooksend(message.guild.channels.get(config.modLog), logEmbed, {
   name: "Logs",
   icon: "https://gamemaster2030.github.io/Logs.png"
 })
