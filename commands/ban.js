@@ -22,7 +22,7 @@ const embed = new Discord.RichEmbed()
   .setTitle("Banned user")
   .setDescription(banMember + " has been banned from the Discord server!")
   .setFooter("Banned by: " + message.author.tag)
-webhooksend(message.guild.channels.get('430012478639046657'), embed, {
+webhooksend(message.channel), embed, {
   name: 'Moderation',
   icon: 'https://i.imgur.com/X9eAmHm.png'
 })
