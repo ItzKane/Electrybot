@@ -22,7 +22,7 @@ const embed = new Discord.RichEmbed()
   .setTitle("Kicked user")
   .setDescription(kickMember + " has been kicked from the Discord server!")
   .setFooter("Kicked by: " + message.author.tag)
-webhooksend(message.channeld), embed, {
+webhooksend(message.channel), embed, {
   name: "Moderation",
   icon: "https://i.imgur.com/X9eAmHm.png"
 })
@@ -39,7 +39,7 @@ webhooksend(message.guild.channels.get(config.modLog), logEmbed, {
 kickMember.kick();
 
 
-    warnMember.send("<:alert:430032794043809792> You've have been banned in **Discord Bot Development** for: " + reason);
+    warnMember.send("<:alert:430032794043809792> You've have been banned in **Electry Development** for: " + reason);
 }
 
 module.exports.config = {
