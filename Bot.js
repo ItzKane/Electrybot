@@ -79,7 +79,7 @@ message.channel.send({embed});
 
 }else
   if(message.content.startsWith(config.prefix + "restart")) {
-    if(!message.author.id === ownerID && message.author.id === smikkelbeerID)
+    if(message.author.id != ownerID && message.author.id != smikkelbeerID)
       return message.channel.reply("You don't have permission to shutdown the bot!");
     const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
