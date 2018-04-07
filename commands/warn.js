@@ -4,7 +4,7 @@ module.exports.run = async (client, message, arg) => {
   const webhooksend = require("quick.hook")
       const modRole = message.guild.roles.find("name", "🔍 | Medewerker");
   if (!modRole)
-    return console.log("Staff role don't exist!");
+    return console.error("Staff role don't exist!");
 
   if (!message.member.roles.has(modRole.id))
     return message.reply("You can't use this command.");

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const eco = require("discord-eco");
 const fs = require("fs");
 const weather = require("weather-js");
 const webhooksend = require("quick.hook")
@@ -26,10 +27,31 @@ function loadCmds() {
     })
   });
 }
+function loadEcoCmds() {
+  fs.readdir('./commands/economy/', (err, files) => {
+    if(err) console.error(err);
+
+    var jsfiles = files.filter(f => f.split('.').pop() === 'js');
+    if (jsfiles.length <= 0) {
+      return console.console.log("No commands found...");
+    }
+    else {
+      console.log(jsfiles.length + " economy commands found!");
+    }
+
+    jsfiles.forEach((f, i) => {
+      delete require.cache[require.resolve(`./commands/economy/${f}`)];
+      const cmds = require(`./commands/economy/${f}`);
+      console.log(`Command ${f} loading...`);
+      client.commands.set(cmds.config.command, cmds);
+    })
+  });
+}
 client.on("ready", () => {
   console.log("I'm  started!");
   client.user.setPresence({ game: { name: config.game, type: 0 } });
   loadCmds();
+  loadEcoCmds();
 });
 
 client.on("message", (message) => {
@@ -53,11 +75,10 @@ if (message.content.startsWith(config.prefix + "help")) {
     .setAuthor("Commands")
     .setColor("#00ff00")
     .setDescription("The prefix for this server is: `" + config.prefix + "`")
-    //.addField("The prefix for this server is:" + config.prefix)
     .addField(config.prefix + "weather <location>", "Get the weather of a location!")
     .addField(config.prefix + "report <@user>", "Report an user to staff!")
     .setTimestamp()
-    .setFooter("© 2018 Electry Development | All Rights Reserved")
+    .setFooter("© 2018 ElectryHost | All Rights Reserved")
 
   message.channel.send({embed});
 
@@ -88,13 +109,14 @@ message.channel.send({embed});
   const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
       .setTitle("Restarting bot...")
-      .setFooter("Copyright 2018 Discord Bot Development.")
+      .setFooter("© 2018 ElectryHost | All Rights Reserved")
     webhooksend(message.channel, embed, {
       name: 'Restart',
       icon: 'https://gamemaster2030.github.io/Bolt.png'
     })
     client.user.setStatus('invisible');
     loadCmds();
+    loadEcoCmds
     function myFunc() {
       client.user.setStatus('online');
       const rEmbed = new Discord.RichEmbed()
@@ -129,4 +151,4 @@ message.channel.send({embed});
 }
 });
 
-client.login(process.env.token);
+client.login(prorcess.env.token);

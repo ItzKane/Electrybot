@@ -1,5 +1,5 @@
 {
-"token":"process.env.token",
+"token":"SECRET",
 "game":"Official ElectryHost dev bot!",
 "prefix":"m.",
 "ownerID":"249836030834900994",
