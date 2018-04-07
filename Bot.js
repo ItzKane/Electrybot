@@ -84,7 +84,7 @@ message.channel.send({embed});
       return console.log("Staff role don't exist!");
 
   if (!message.member.roles.has(modRole.id))
-    return message.channel.send("You don't have permission to shutdown the bot!");
+    return message.channel.send("You don't have permission to restart the bot!");
   const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
       .setTitle("Restarting bot...")
