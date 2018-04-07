@@ -13,7 +13,7 @@ if (message.mentions.members.size === 0)
 return message.reply("Please mention a user to kick");
 
 if (!message.guild.me.hasPermission("KICK_MEMBERS"))
-return message.send("You don't have the permission to kick!");
+return message.send("I don't have the permission to kick!");
 
 let kickMember = message.mentions.members.first();
 
