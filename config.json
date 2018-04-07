@@ -1,5 +1,5 @@
 {
-"token":"NDMxNTA4MTg4OTI4NjcxNzU0.DafxQA.aZUvBwdhXfv7qyYuv2vjrt5XYdA",
+"token":"process.env.token",
 "game":"Official ElectryHost dev bot!",
 "prefix":"m.",
 "ownerID":"249836030834900994",

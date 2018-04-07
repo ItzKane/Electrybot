@@ -79,9 +79,13 @@ message.channel.send({embed});
 
 }else
   if(message.content.startsWith(config.prefix + "restart")) {
-    if(!message.author.id === config.ownerID && message.author.id === config.smikkelbeerID)
-      return message.channel.reply("You don't have permission to shutdown the bot!");
-    const embed = new Discord.RichEmbed()
+    const modRole = message.guild.roles.find("name", "ElectryMod");
+    if (!modRole)
+      return console.log("Staff role don't exist!");
+
+  if (!message.member.roles.has(modRole.id))
+    return message.channel.send("You don't have permission to shutdown the bot!");
+  const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
       .setTitle("Restarting bot...")
       .setFooter("Copyright 2018 Discord Bot Development.")
@@ -105,9 +109,14 @@ message.channel.send({embed});
     setTimeout(myFunc, 10000)
     }else
       if(message.content.startsWith(config.prefix + "shutdown")) {
-        if(!message.author.id === config.ownerID && message.author.id === config.smikkelbeerID)
-          return message.channel.reply("You don't have permission to shutdown the bot!");
-        const rEmbed = new Discord.RichEmbed()
+        const modRole = message.guild.roles.find("name", "ElectryMod");
+        if (!modRole)
+          return console.log("Staff role don't exist!");
+
+      if (!message.member.roles.has(modRole.id))
+        return message.channel.send("You don't have permission to shutdown the bot!");
+
+    const rEmbed = new Discord.RichEmbed()
           .setColor("0x77C2AE")
           .setTitle("Shutting down bot.")
           .setFooter("© 2018 ElectryHost | All Rights Reserved")

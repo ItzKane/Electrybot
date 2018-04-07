@@ -1,5 +1,5 @@
 module.exports.run = async (client, message, arg) => {
-  const sconfig = require("./config.json");
+  const sconfig = require("../config.json");
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
   let reportedUser = message.mentions.members.first();
