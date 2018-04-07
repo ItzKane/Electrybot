@@ -73,13 +73,13 @@ const embed = new Discord.RichEmbed()
   .addField(config.prefix + "kick <@user> <reason>", "Kick an user")
   .addField(config.prefix + "warn <@user> <reason>", "Warn an user")
   .setTimestamp()
-  .setFooter("© 2018 Electry Development | All Rights Reserved")
+  .setFooter("© 2018 ElectryHost | All Rights Reserved")
 
 message.channel.send({embed});
 
 }else
   if(message.content.startsWith(config.prefix + "restart")) {
-    if(message.author.id != ownerID && message.author.id != smikkelbeerID)
+    if(!message.author.id === config.ownerID && message.author.id === config.smikkelbeerID)
       return message.channel.reply("You don't have permission to shutdown the bot!");
     const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
@@ -96,7 +96,7 @@ message.channel.send({embed});
       const rEmbed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
       .setTitle("Restarted bot.")
-      .setFooter("Copyright 2018 Discord Bot Development.")
+      .setFooter("© 2018 ElectryHost | All Rights Reserved")
     webhooksend(message.channel, rEmbed, {
       name: 'Restart',
       icon: 'https://gamemaster2030.github.io/Bolt.png'
@@ -105,12 +105,12 @@ message.channel.send({embed});
     setTimeout(myFunc, 10000)
     }else
       if(message.content.startsWith(config.prefix + "shutdown")) {
-        if(!message.author.id === ownerID && message.author.id === smikkelbeerID)
+        if(!message.author.id === config.ownerID && message.author.id === config.smikkelbeerID)
           return message.channel.reply("You don't have permission to shutdown the bot!");
         const rEmbed = new Discord.RichEmbed()
           .setColor("0x77C2AE")
           .setTitle("Shutting down bot.")
-          .setFooter("Copyright 2018 Discord Bot Development.")
+          .setFooter("© 2018 ElectryHost | All Rights Reserved")
         webhooksend(message.channel, rEmbed, {
           name: 'Shutdown',
           icon: 'https://gamemaster2030.github.io/shutdown.png'
