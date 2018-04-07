@@ -2,7 +2,7 @@ module.exports.run = async (client, message, cont) => {
   const sconfig = require("./config.json");
   const Discord = require('discord.js')
   const webhooksend = require("quick.hook")
-  let infoText = cont.slice(1).join(" ");
+  let infoText = cont.join(" ");
   const embed = new Discord.RichEmbed()
   .setTitle("Info")
   .setColor("#0284ff")
