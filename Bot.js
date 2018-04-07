@@ -79,7 +79,9 @@ message.channel.send({embed});
 
 }else
   if(message.content.startsWith(config.prefix + "restart")) {
-      const embed = new Discord.RichEmbed()
+    if(!message.author.id === ownerID && message.author.id === smikkelbeerID)
+      return message.channel.reply("You don't have permission to shutdown the bot!");
+    const embed = new Discord.RichEmbed()
       .setColor("0x77C2AE")
       .setTitle("Restarting bot...")
       .setFooter("Copyright 2018 Discord Bot Development.")
@@ -103,6 +105,8 @@ message.channel.send({embed});
     setTimeout(myFunc, 10000)
     }else
       if(message.content.startsWith(config.prefix + "shutdown")) {
+        if(!message.author.id === ownerID && message.author.id === smikkelbeerID)
+          return message.channel.reply("You don't have permission to shutdown the bot!");
         const rEmbed = new Discord.RichEmbed()
           .setColor("0x77C2AE")
           .setTitle("Shutting down bot.")
